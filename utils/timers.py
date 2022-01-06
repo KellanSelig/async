@@ -11,5 +11,6 @@ def time_func_run(func: Callable) -> Any:
         start = time.perf_counter()
         await func(*args, **kwargs)
         print(f"===END {func.__name__.upper()}===")
-        return time.perf_counter() - start
+        print(f"Execution time: {(execution_time := time.perf_counter() - start)}")
+        return execution_time
     return wrapper
